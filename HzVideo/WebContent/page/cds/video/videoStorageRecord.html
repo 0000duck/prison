@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>视频存储记录</title>
+<link rel="stylesheet" href="../../../libs/bootstrap/css/bootstrap.min.css" >
+<link rel="stylesheet" href="../../../libs/ztree/css/zTreeStyle/zTreeStyle.css">
+<link rel="stylesheet" href="../../../libs/hzdate/css/dark.css">
+<link rel="stylesheet" href="../../../css/common.css" >
+<link rel="stylesheet" href="../../../css/frm/hz.mindmap.css">
+<style>
+	div.left-con {
+		padding: 5px;
+		margin: 0px;
+	}
+	div.input input {
+		background-color: rgba(0,0,0,0.6);
+	}
+	.expand-btn {
+		display:inline-block;position:absolute;bottom:5px;right:5px;font-size:12px;color:#bdc71a;cursor: pointer;
+	}
+	.device-types{
+		padding:10px 0;position:relative;margin-top:5px;background:#272525;
+	}
+	.search-menu{
+		width:100px;
+		position: absolute;
+		left:0;
+		top:34px;
+		z-index:100;
+		background:rgba(21, 67, 82,1);
+		padding:5px;
+	}
+	.search-menu p{
+		padding:3px 5px;
+		font-size:13px;
+		color:#fff;
+	}
+	.search-menu p:hover{
+		cursor: pointer;
+		color:#bdc71a;
+	}
+	.date-input{   
+		margin-right: 15px;
+    	margin-left: 5px;
+	}
+	
+	#tabDirList {
+		width: 98%;
+		margin: 1%;
+	}
+	
+	#tabDirList >thead {
+	}
+	#tabDirList >thead th {
+		height: 28px;
+	    background-color: #054f9a;
+	    text-indent: 5px;
+	    border-right: 1px solid;
+	}
+	#tabDirList >thead >tr >th:last-child {
+	    border-right: 0 none;
+	}
+	
+	#tabDirList >tbody >tr.even >td {
+		background-color: rgba(255,255,255,0.15);
+	}
+	#tabDirList >tbody >tr.odd >td {
+		background-color: rgba(255,255,255,0.12);
+	}
+	#tabDirList >tbody >tr:hover >td {
+		background-color: rgba(255,255,255,0.2);
+	}
+	#tabDirList >tbody >tr >td {
+		height: 26px;
+	    text-indent: 5px;
+	}	
+	#tabDirList >tbody td.empty {
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+<div class="vbox box-con">
+	<div class="hbox hz-col-1">
+		<div class="left-con vbox" style="width:270px">
+			<div class="input icon" >
+			  	<input v-model="searchTree" placeholder="输入关键字搜索">
+			  	<span class="find"></span>
+		    </div>
+		    <div class="hz-col-1" style="overflow:auto">
+				<ul id="dataTree" class="ztree"></ul>
+		    </div>
+		</div>
+		<div class="hz-col-1 vbox" style="position: relative; overflow: hidden;">
+			<table id="tabDirList">
+				<thead>
+					<tr><th>名称</th><th>类型</th></tr>
+				</thead>
+				<tbody>
+					<tr v-show="dirList.length == 0"><td colspan="2" class="empty">该文件夹为空</td></tr>
+					<tr v-for="T in dirList" class="{{$index / 2 == 0 ? 'even': 'odd'}}" @dblclick="dblClick(T)"><td>{{T.name}}</td><td>{{T.isDir ? '文件夹': '文件'}}</td></tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="bottom">
+		<div class="buttons">
+
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="../../../js/require.js"></script>
+<script type="text/javascript" src="../../../js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['hz/cds/video/videoStorageRecord']);
+</script>
+</html>

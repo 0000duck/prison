@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqlItem>
+ 	<item id="select_user_host_setting" desc="查询用户关联对讲主机信息">
+		<sql>
+			SELECT sus_record_id,
+				   sus_value,
+			       tbd_relation_service
+			  FROM sys_user_system_setting
+		 LEFT JOIN tbk_talkback_base_dtls
+			    ON (sus_value = tbd_other_id)   
+		</sql>
+		<where id="0" >
+			WHERE sus_cus_number = :cusNumber
+ 			  AND sus_user_id = :userId
+		</where>
+    </item> 
+</sqlItem> 

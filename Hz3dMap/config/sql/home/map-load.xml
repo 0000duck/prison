@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 在xml配置中SQL语句里面不能用'<'，所以'<' 用 '#' 号表示，在加载时会自动转换过来 -->
+<sqlItem>
+    <item id="select_map_model_base_file_for_load" desc="查询地图模型文件根目录">
+		<sql>
+			SELECT mfi_file_name AS base_name
+			  FROM map_model_file_info
+		</sql>
+		<where id="0">
+			 WHERE mfi_cus_number = ?
+			   AND (mfi_file_pid IN (0, -1)
+			    OR mfi_file_pid IS NULL)
+		</where>
+    </item>
+</sqlItem>

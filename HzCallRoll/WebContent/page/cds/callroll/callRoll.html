@@ -1,0 +1,276 @@
+<style>
+	section.callRoll{
+		position:absolute;
+		left:20%;
+		top:20%;
+		width:300px;
+	    border: 1px solid rgb(255, 255, 255);
+        border-radius: 5px;
+        background-color: rgb(42, 61, 82);
+        transition:width 0.5s linear 0.7s;
+	}
+	section.callRoll>div{
+		transition:height 0.7s ;
+		overflow:hidden;
+	}
+	section.callRoll> div.title{
+        background: rgb(42, 61, 82);
+	    height: 35px;
+	    line-height: 35px;
+	    font-size: large;
+	    cursor:move;
+        border-radius: 5px 5px 0 0;
+        position: relative;
+	}
+	section.callRoll> div.title >span{
+		width:100%;
+		height:30px;
+	}
+	section.callRoll>div.con{
+   	    background: rgb(42, 61, 82);
+	    height: 406px;
+	    margin: 1px 8px 0px 8px;
+	    border-radius: 0 0 5px 5px;
+        border-top: 1px solid rgb(255, 255, 255);
+	}
+	section.callRoll li{
+		height: 32px;
+	    margin-top: 1px;
+	    cursor:pointer;
+	    animation:prev 1.5s linear;
+	}
+	section.callRoll li:nth-child(odd){
+		background: rgb(62, 80, 99);
+	}
+	section.callRoll li:nth-child(even){
+		background: rgb(48, 75, 99);
+	}
+	section.callRoll span{
+	    width: 50%;
+	    text-align:center;
+	    height: 30px;
+	    line-height:30px;
+	    float:left;
+	}
+	section.callRoll li:hover{
+		background:rgb(78, 122, 169);
+	}
+	#detail{
+		left:60%;
+		height:462px;
+	}
+	#detail li>span:first-child{
+		width:8%;
+	}
+	#detail li>span{
+		width:46%;
+	}
+	.h{
+		display:none
+	}
+	
+	section.callRoll div.gram{
+	    position: absolute;
+	    width: 100%;
+	    bottom: 35px;
+	    text-align: center;
+	}
+	section.callRoll div.gram>a{
+	    height: 8px;
+	    width: 8px;
+	    border-radius: 100%;
+	    background: rgb(152, 165, 179);
+	    margin: 0 6px;
+	    cursor:pointer;
+	}
+	section.callRoll div.gram>a:hover ,div.gram>a.active{
+		background-color:rgb(245, 239, 239);
+     	transform: scale(1.3);
+	}
+	@keyframes next{
+		0%{
+		    transform: rotateX(0deg);
+		}
+		50%{
+		    transform: rotateX(-90deg);
+		}
+		100%{
+		    transform: rotateX(0deg);
+		}
+	}
+	@keyframes prev{
+		0%{
+		    transform: rotateX(0deg);
+		}
+		50%{
+		    transform: rotateX(-90deg);
+		}
+		100%{
+		    transform: rotateX(0deg);
+		}
+	}
+	section.callRoll ul.toggle>li{
+		animation:next 1.5s linear;
+		animation-fill-mode: forwards;
+	}
+	section.callRoll.roll>div.con>div{
+		flex:none;
+		height:0px;
+		overflow:hidden;
+	}
+	section.callRoll.roll>div.gram{
+		bottom:5px;
+	}
+	section.callRoll div.check{
+		margin-bottom:2px;
+	}
+	section.callRoll div.check>span{
+	    cursor: pointer;
+	    width: 49%;
+	    margin-left: 1%;
+        background: rgb(62, 80, 99);
+        color:rgb(242, 99, 54);
+        position:relative;
+	}
+	section.callRoll div.check>span:hover,section.callRoll div.check>span.active{
+		background:rgb(48, 75, 99);
+		color: rgb(28, 224, 214);
+	}
+	section.callRoll div.check>span:hover::before,section.callRoll div.check>span.active::before{
+		content: '';
+	    background: rgb(30, 201, 197);
+	    position: absolute;
+	    left: 10px;
+	    top: 50%;
+	    width: 10px;
+	    margin-top: -5px;
+	    height: 10px;
+	    border-radius: 100%;
+	}
+	section.callRoll div.title::after,#detail div.title::before,section.callRoll div.title::before{
+	    content: '';
+	    background-image: url(./css/images/close.png);
+	    position: absolute;
+	    top: 2px;
+	    right: 2px;
+	    height: 19px;
+	    background-position: center;
+	    width: 19px;
+	    background-repeat: no-repeat;
+	    cursor: pointer;
+	}
+	section.callRoll div.title::before{
+		background-image:url(./css/images/slideup.png);
+		right:22px;
+		top:0px;
+	}
+	#detail div.title::before{
+	    background-image: url(./css/images/detail.png);
+	    left: 2px;
+	}
+	section.callRoll>div.callbutton{
+	    position: absolute;
+	    top: -40px;
+	    right: -50px;
+	    width: 90px;
+	    height: 30px;
+	    background: rgb(42, 61, 82);
+	    border: 1px solid rgb(255,255,255);
+	    border-radius: 10px;
+	    text-align: center;
+	    cursor: pointer;
+	    line-height: 30px;
+        color: rgb(28, 224, 214);
+	}
+	section.callRoll.slideup{
+		width:0px;
+	}
+	section.callRoll.slideup div.title,section.callRoll.slideup div.con,section.callRoll.slideup div.gram{
+		height:0px !important;
+		overflow:hidden;
+		border:none;
+		margin:0px;
+		padding:0px;
+	}
+	section#detail div.title>label{
+        display: inline;
+	    width: 20px;
+	    height: 20px;
+	    float: left;
+	    cursor: pointer;
+	    position:absolute;
+	    z-index:1;
+	}
+	section#detail label:hover>div{
+        position: absolute;
+	    width: 150px !important;
+	    top: -1px;
+	    right: 115%;
+	    line-height: 90px;
+	    font-weight: normal;
+	    font-size: small;
+	    border-radius: 10px;
+	    text-align: center;
+	    height: 90px;
+	    background: rgba(72, 99, 130, 0.51);
+	}
+</style>
+
+<!-- 点名按钮 -->
+<div class="callbutton" @click.self="slideup($event)">
+	点名（{{total}}）
+</div>
+
+
+<div class="title" @click.self.stop="close($event,1);">
+	<span >点名监区列表</span>
+</div>
+<!-- 点名区域 -->
+<div class="vbox box-con con">
+	<div style="background: rgb(104, 119, 133);height:30px;">
+		<span>点名监区</span><span>点名民警</span>
+	</div>
+	<ul class="hz-col-9">
+		<li v-for="item in callList"  @click="showDetail(item)" track-by="$index">
+			<span>{{item['crm_dprt_name']}}</span><span>{{item['crm_police_name']}}</span>
+		</li>
+	</ul>
+</div>
+<div class="gram" style="bottom:2px;">	
+		<a v-for="l in areaPage" @click.self="turnPage(l,$event)" :class="{'active':areaPage==l+1}"></a>
+</div>
+
+
+<!-- 点名详情 -->
+<section id="detail" :class="{'callRoll':true, 'h':true, 'roll':!currentArea.detail.finish}">
+	<div class="title" style="height:53px;position:static;" @click.self.stop="close($event,0);">
+		<label>
+			<!-- 点名概览 -->
+			<div  style="width:0px;overflow:hidden;">
+				<span>点名民警：</span><span>{{currentArea.detail['crm_police_name']}}</span>
+				<span>点名人数：</span><span>{{currentArea.detail['crm_predict_num']}}</span>
+				<span>开始时间：</span><span>{{currentArea.detail['crm_begin_time']}}</span>
+			</div>
+		</label>
+		
+		<span style="position:absolute;">{{currentArea.detail['crm_dprt_name']}}实时点名</span>
+		
+		<span style="font-size:xx-small;top:23px;position:absolute;">({{currentArea.detail['time']}})</span>
+	</div>
+	<!-- 点名区域 -->
+	<div class="vbox box-con con">
+		<ul class="hz-col-9" style="margin-top:0px;">
+			<li v-for="item in currentArea.detailList"  track-by="$index">
+				<span>{{$index+1}}.</span><span> {{item['crd_prisoner_name']}}</span><span>{{item['crd_time']}}</span>
+			</li>
+		</ul>
+		<div class="check" >
+			<span class="active" @click.self="changeS($event,1)">已点({{currentArea.detail['crm_fact_num']}})</span><span @click.self="changeS($event,2)">未点({{currentArea.detail['crm_predict_num']-currentArea.detail['crm_fact_num']}})</span>
+		</div>
+	</div>
+	
+	<!--  -->
+	<div class="gram">
+		<a v-for="l in currentArea.detailPage" @click.self="turnPage(l,$event,1)" :class="{'active':currentArea.detailPage-currentArea.flag==l}"></a>
+	</div>
+</section>

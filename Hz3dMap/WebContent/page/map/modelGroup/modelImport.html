@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../../libs/bootstrap/css/bootstrap.min.css" >
+<link rel="stylesheet" href="../../../css/common.css" >
+<title></title>
+<style>
+.model_lable{
+    text-align: right;
+    padding-top: 5px;
+    padding-right: 5px;
+}
+.model_log{
+	height: 182px;
+    border: 1px solid #1f699e;
+    padding: 11px;
+    user-select: initial;
+    -webkit-user-select:initial;
+    -moz-user-select:initial;
+    overflow:auto;
+}
+</style>
+</head>
+<body>
+<div class="vbox box-con">
+	<div class="hbox hz-col-1">
+		<div class="hz-col-1 right-con" style="overflow: hidden;">
+			<form class="form-horizontal" role="form" >
+				<div class="form-group">
+				    <label class="col-xs-3 control-label model_lable" >模型路径</label>
+				    <div class="col-xs-9">
+				      <input class="form-control" v-model="path" type="text" placeholder="请输入模型导入路径">
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label class="col-xs-3 control-label model_lable" >日志记录</label>
+				    <div class="col-xs-9">
+				    	<div class="model_log" v-html="modelLog"></div>
+				    </div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="bottom">
+		<div class="buttons" >
+			<a @click="save" class="hbtn btn_primary btn_large"><i class="btn_icon icon_save"></i><span>导入</span></a>
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="../../../js/require.js"></script>
+<script type="text/javascript" src="../../../js/config.js"></script>
+<script type="text/javascript">
+requirejs(['hz/map/modelGroup/modelImport'])
+</script>
+</html>

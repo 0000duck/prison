@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../../css/common.css" >
+<link rel="stylesheet" href="../../../libs/ztree/css/zTreeStyle/zTreeStyle.css">
+<link rel="stylesheet" href="../../../libs/hzdate/css/dark.css" >
+<style>
+ul.container{
+	color:#fff;	
+	margin-top:50px;
+	overflow:auto;
+}
+ul.container li{
+    margin: 10px;
+    background: #7c848c;
+    padding-top: 10px;
+    border-radius: 10px;
+    cursor:pointer;
+}
+ul.container li::after{
+	content:'';
+	width:10px;
+	height:10px;
+}
+ul.container li>div:last-child{
+	transition:height 1s;
+	height:0px;
+	overflow:hidden;
+	background:rgba(167, 179, 192, 0.95);
+}
+ul.container li>div:last-child{
+    border-top: 1px solid rgb(19, 1, 1);
+}
+ul.container p{
+	margin:10px;
+}
+ul.container li span{
+	width:50%;
+}
+div.show{
+	height:auto !important;
+	overflow:hidden;
+}
+label{
+    background: #3f4a43;
+    min-height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 5px;
+    padding:0 10px;
+    max-width:200px;
+}
+.condition{
+ 	border: 1px solid rgba(31, 105, 158, 0.22);
+    height: 34px;
+    width:32%;
+    top: 10px;
+    position: absolute;
+    background: rgba(59, 70, 77, 0.62);
+    color: rgb(255, 255, 255);
+    z-index: 100;
+    border-radius: 15px;
+}
+.condition>input{
+    width: 98%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+    position: initial;
+    cursor: auto;
+    color:white;
+    outline:none;
+    margin-left:2%;
+}
+div.layui-layer-content{
+		color:#fff;
+}
+label::after{
+	content: '-已执行';
+    color: green;
+}
+label.excute::after{
+	content:'-未执行';
+	color:red;
+}
+div.date-input{
+	height: 34px;
+	border:none;
+}
+div.date-input >input{
+	background:none;
+	height:100%;
+	height:auto;
+	padding:0 0 0 2%;
+}
+</style>
+</head>
+<body>
+<div class="vbox box-con" id="container">
+	<div class="vbox hz-col-1" style="position:relative;overflow-y:auto;overflow-x:hidden;">
+		<div class="condition" style="right:67%;">
+		<hz-date 
+      		tip="计划执行时间" 
+      		:val.sync="condition.date"
+      	 	format=Y-m-d
+      	/>
+		</div>
+		<div class="condition" style="right:34%"><input placeholder="计划名称" class="find"  v-model="condition.planName" style="background-image:url(../../../css/images/area.png)"></div>
+		<div class="condition" style="right:1%"><input placeholder="计划执行人" class="find" id="finda" v-model="condition.userName" style="background-image:url(../../../css/images/plc.png)"></div>
+		<div  v-if="records.length==0" class="empty" style="padding-top:44px">暂无记录</div>
+		<ul class="container" id="scroll" v-cloak>
+			<li v-for="t in plans" title="点击查看详情">
+				<div @click="toggle($event,t)">
+					<p><span>计划名称：{{t['vcr_vpp_name']}}</span><span>执行时间：{{t['vcr_vpp_excute_time']}}</span></p>
+					<p><span>执行人：{{t['vcr_vpp_user_name']}}</span><span>执行情况：{{t.percent*100}}%</span></p>
+				</div>
+				<div>
+					<label v-for="c in t.cameras"  :class="{excute:c['status']=='0'}">{{c['name']}}</label>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="bottom">
+		<div class="buttons">
+			<a  @click="add" class="hbtn btn_primary btn_large"><i class="btn_icon icon_save"></i><span>重置</span></a>
+			<a  @click="save" class="hbtn btn_primary btn_large"><i class="btn_icon icon_save"></i><span>查询</span></a>
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="../../../js/require.js"></script>
+<script type="text/javascript" src="../../../js/config.js"></script>
+<script type="text/javascript">
+requirejs(['hz/cds/patrolPlan/record']);
+</script>
+</html>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqlItem>   
+	<item id="select_police_inout_count"  desc="根据警号在监信息情况查询">
+		<sql>
+			 SELECT COUNT(pbd_user_id) AS count, 
+			 	        pbd_in_prison  AS flag
+			   FROM plc_police_base_dtls
+			  WHERE pbd_cus_number = ?
+           GROUP BY pbd_in_prison
+		</sql>
+	</item>
+
+	<item id="select_police_base_info"  desc="警员监内数据统计页面查询">
+		<const key="pbd_pstn_name">pbd_pstn_name</const>
+		<sql>
+			SELECT pbd_user_id,   
+		           pbd_police_id,    
+		           pbd_drptmnt_id, 
+		           pbd_police_name, 
+		           pbd_pstn_name,
+		           pbd_phone,
+		           pbd_talk_num,
+		           pbd_img,
+		           odd_name
+		      FROM plc_police_base_dtls 
+	     LEFT JOIN sys_org_dept_dtls
+	           ON (odd_id = pbd_drptmnt_id)                
+		</sql>
+		<where id="0" remark="根据在监状态查询">
+			WHERE pbd_cus_number = ?
+			  AND pbd_in_prison = ?
+		</where>
+		<where id="1" remark="查询全监狱">
+			WHERE pbd_cus_number = ?
+		</where>
+	    <where id="2" remark="按部门查询">
+			WHERE pbd_cus_number = ?
+			  AND pbd_drptmnt_id = ?
+		</where>
+		<order id="0">
+		  ORDER BY  pbd_police_id 
+		</order> 		
+	</item> 
+
+	<item id="select_police_drptmnt_count"  desc="各部门警员分布数量查询">
+		<sql>
+			SELECT COUNT(pbd_user_id) AS count, 
+				   pbd_drptmnt_id,
+				   odd_name
+			  FROM plc_police_base_dtls
+		 LEFT JOIN sys_org_dept_dtls
+			    ON (odd_id = pbd_drptmnt_id)
+		</sql>
+		<where id="0">
+			WHERE pbd_cus_number = ?
+		 GROUP BY pbd_drptmnt_id,odd_name 	
+		</where>
+	</item>		 
+</sqlItem>

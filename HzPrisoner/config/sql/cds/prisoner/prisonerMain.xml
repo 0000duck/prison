@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqlItem>
+	<item id="query_count_today_prisoner" desc="查询当日罪犯统计">
+		<sql>
+			SELECT id, title, count
+			  FROM (SELECT '当前收押：' AS title, COUNT(0) AS count, 1001 AS id
+			          FROM psr_prisoner_base_dtls
+			         WHERE pbd_cus_number = :cusNumber
+			           AND pbd_stts_indc = 0
+			        UNION
+			        SELECT '当日收押：' AS title, COUNT(0) AS count, 1002 AS id
+			          FROM psr_prisoner_base_dtls
+			         WHERE pbd_cus_number = :cusNumber
+			           AND pbd_stts_indc = 1
+			           AND pbd_entry_prisoner_date BETWEEN
+			               TO_DATE(TO_CHAR(SYSDATE, 'YYYY-MM-DD') || ' 00:00:00',
+			                       'YYYY-MM-DD HH24:MI:SS') AND
+			               TO_DATE(TO_CHAR(SYSDATE, 'YYYY-MM-DD') || ' 23:59:59',
+			                       'YYYY-MM-DD HH24:MI:SS')
+			        UNION
+			        SELECT '当日释放：' AS title, COUNT(0) AS count, 1003 AS id
+			          FROM psr_prisoner_base_dtls
+			         WHERE pbd_cus_number = :cusNumber
+			           AND pbd_stts_indc = 0
+			           AND pbd_updt_time BETWEEN
+			               TO_DATE(TO_CHAR(SYSDATE, 'YYYY-MM-DD') || ' 00:00:00',
+			                       'YYYY-MM-DD HH24:MI:SS') AND
+			               TO_DATE(TO_CHAR(SYSDATE, 'YYYY-MM-DD') || ' 23:59:59',
+			                       'YYYY-MM-DD HH24:MI:SS'))
+			 ORDER BY id
+		</sql>
+	</item>
+</sqlItem>

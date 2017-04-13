@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqlItem>
+	<item id="insert_video_cut_info" desc="新增视频截图信息">
+		<seq>cmr_video_cut_dtls@vcd_cut_id</seq>
+		<sql>
+			INSERT INTO cmr_video_cut_dtls
+			  (vcd_cus_number,
+			   vcd_cut_id,
+			   vcd_title,
+			   vcd_record_user,
+			   vcd_time,
+			   vcd_place,
+			   vcd_problem_type,
+			   vcd_detail,
+			   vcd_file_type,
+			   vcd_use_status,
+			   vcd_cut_url)
+			VALUES
+			  (:vcd_cus_number,
+			   :vcd_cut_id,
+			   :vcd_title,
+			   :vcd_record_user,
+			    SYSDATE,
+			   :vcd_place,
+			   :vcd_problem_type,
+			   :vcd_detail,
+			   :vcd_file_type,
+			   :vcd_use_status,
+			   :vcd_cut_url)
+		</sql>
+	</item>
+	<item id="select_video_cut_info" desc="查询视频截图信息">
+		<const key="vcd_problem_type">VIDEO_CUT_PROBLEAM_TYPE</const>
+		<const key="vcd_use_status">VIDEO_CUT_USE_STATUS</const>
+		<const key="vcd_file_type">VIDEO_CUT_FILE_TYPE</const>
+		<sql>
+			SELECT vcd_cus_number,
+			   vcd_cut_id,
+			   vcd_title,
+			   vcd_record_user,
+			   to_char(vcd_time,'yyyy-mm-dd hh24:mi:ss') AS vcd_time,
+			   vcd_place,
+			   vcd_problem_type,
+			   vcd_detail,
+			   vcd_file_type,
+			   vcd_use_status,
+			   vcd_cut_url,
+			   ubd_name 
+			FROM cmr_video_cut_dtls v
+			INNER JOIN sys_user_base_dtls u 
+			ON v.vcd_record_user = u.ubd_id 
+		</sql>
+		<where id="0">
+			WHERE vcd_cus_number = :cusNumber
+		</where>
+		<where id="1">
+			WHERE vcd_cus_number = :cusNumber
+			AND (:status is null or :status = '' or vcd_use_status = :status)
+			AND (:fileType is null or :fileType = '' or vcd_file_type = :fileType)
+			AND (:startTime is null or :startTime = '' or TO_TIMESTAMP(:startTime,'yyyy-MM-dd hh24:mi:ss') # vcd_time)
+			AND (:endTime is null or :endTime = '' or TO_TIMESTAMP(:endTime,'yyyy-MM-dd hh24:mi:ss') > vcd_time)
+		</where>
+		<where id="2">
+			WHERE vcd_cus_number = :cusNumber
+			AND (:vcd_title is null or :vcd_title = '' or vcd_title LIKE CONCAT('%',CONCAT(:vcd_title,'%')))
+			AND (:vcd_detail is null or :vcd_detail = '' or vcd_detail LIKE CONCAT('%',CONCAT(:vcd_detail,'%')))
+		</where>
+	</item>
+</sqlItem>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqlItem>
+	<item id="select_timing_call_roll_list" desc="查询点名配置数据表格">
+		<sql>
+			SELECT  tcm_cus_number,
+					tcm_id,
+					tcm_begin_time,
+					tcm_max_time,
+					tcm_dept_id,
+					tcm_area_id,
+					tcm_crte_time,
+					tcm_crte_user_id,
+					tcm_updt_time,
+					tcm_updt_user_id,
+					(
+						SELECT COUNT(*) FROM psr_prisoner_base_dtls p
+						INNER JOIN dvc_rfid_label_people_bind b
+						ON p.pbd_other_id = b.rpb_people_id
+						WHERE p.pbd_prsn_area_id = r.tcm_dept_id
+						AND p.pbd_cus_number = r.tcm_cus_number
+					) AS count
+			FROM cds_timing_call_roll_master r
+		</sql>
+		<where id="0">
+		  	WHERE tcm_cus_number = :tcm_cus_number
+		</where>
+		<where id="1">
+		  	WHERE tcm_cus_number = :tcm_cus_number
+			AND (:tcm_dept_id is null or :tcm_dept_id = '' or tcm_dept_id = :tcm_dept_id)
+			AND (:tcm_begin_time is null or :tcm_begin_time = '' or :tcm_end_time is null or :tcm_end_time = '' or
+				to_number(replace(tcm_begin_time,':',''))
+				between replace(:tcm_begin_time,':','') AND  replace(:tcm_end_time,':','')
+			)
+		</where>
+		<order id="0">
+			ORDER BY tcm_begin_time DESC
+		</order>
+    </item>
+	<item id="insert_timing_call_roll_data" desc="新增点名配置数据">
+		<seq>cds_timing_call_roll_master@tcm_id</seq>
+		<sql>
+			INSERT INTO cds_timing_call_roll_master
+				(tcm_cus_number,
+				tcm_id,
+				tcm_begin_time,
+				tcm_max_time,
+				tcm_dept_id,
+				tcm_area_id,
+				tcm_crte_time,
+				tcm_crte_user_id,
+				tcm_updt_time,
+				tcm_updt_user_id)
+			values
+				(:tcm_cus_number,
+				:tcm_id,
+				:tcm_begin_time,
+				:tcm_max_time,
+				:tcm_dept_id,
+				:tcm_area_id,
+				 SYSDATE,
+				:tcm_crte_user_id,
+				 SYSDATE,
+				:tcm_updt_user_id)
+		</sql>
+    </item>
+    <item id="select_timing_call_roll_data" desc="删除点名配置数据">
+		<sql>
+			DELETE FROM cds_timing_call_roll_master
+		</sql>
+		<where id="0">
+			WHERE tcm_cus_number = :tcm_cus_number
+			AND tcm_id = :tcm_id
+		</where>
+    </item>
+
+	<item id="select_timing_call_roll_prisoner" desc="根据部门查询已绑定预计点名人数">
+		<sql>
+			SELECT pbd_cus_number,pbd_prsnr_id,pbd_other_id FROM psr_prisoner_base_dtls p
+			INNER JOIN dvc_rfid_label_people_bind b
+			ON p.pbd_prsnr_id = b.rpb_people_id
+		</sql>
+		<where id="0">
+			WHERE pbd_prsn_area_id = :tcm_dept_id
+			AND pbd_cus_number = :tcm_cus_number
+		</where>
+	</item>
+</sqlItem>
