@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 在xml配置中SQL语句里面不能用'<'，所以'<' 用 '#' 号表示，在加载时会自动转换过来 -->
+<sqlItem>
+	<item id="insert_menu_sql" desc="这是一个SQL配置的模板文件">
+		<seq>SYS_FUNC_MENU_DTLS@fmd_id</seq>
+		<sql>
+			INSERT INTO sys_func_menu_dtls 
+			(
+			   fmd_id          ,
+			   fmd_parent_id   ,
+			   fmd_name        ,
+			   fmd_path        ,
+			   fmd_type        ,
+			   fmd_width       ,
+			   fmd_height      ,
+			   fmd_flag        ,
+			   fmd_open_type   ,
+			   fmd_icon        ,
+			   fmd_shortcut_key ,
+			   fmd_seq          ,
+			   fmd_use          ,
+			   fmd_crte_user_id ,
+			   fmd_sys_func,
+			   fmd_crte_time    
+			)values(
+			   ?          ,
+			   ?          ,
+			   ?          ,
+			   ?          ,
+			   ?          ,
+			   ?          ,
+			   ?          ,
+			   ?          ,
+			   ?          ,
+			   ?          ,
+			   ?          ,
+			   ?          ,
+			   ?          ,
+			   ?          ,
+			   ?		  ,
+			   SYSDATE)
+		</sql>
+    </item>
+    
+    
+    <item id="query_menu_sql" desc="这是一个SQL配置的模板文件">
+		<sql>
+			SELECT 
+			   fmd_id         ,
+			   fmd_parent_id  ,
+			   fmd_name       ,
+			   fmd_path       ,
+			   fmd_type       ,
+			   fmd_width      ,
+			   fmd_height     ,
+			   fmd_flag       ,
+			   fmd_open_type  ,
+			   fmd_icon         ,
+			   fmd_shortcut_key ,
+			   fmd_seq          ,
+			   fmd_use          ,
+			   fmd_sys_func
+			FROM 
+				sys_func_menu_dtls
+		</sql>
+		<order id="0">
+			ORDER BY fmd_seq
+		</order>
+    </item>
+    
+    <item id="update_menu_sql" desc="这是一个SQL配置的模板文件">
+		<sql>
+			UPDATE sys_func_menu_dtls
+			   SET fmd_parent_id    = ?,
+			       fmd_name         = ?,
+			       fmd_path         = ?,
+			       fmd_type         = ?,
+			       fmd_width        = ?,
+			       fmd_height       = ?,
+			       fmd_flag         = ?,
+			       fmd_open_type    = ?,
+			       fmd_icon         = ?,
+			       fmd_shortcut_key = ?,
+			       fmd_use          = ?,
+			       fmd_updt_user_id = ?,
+			       fmd_sys_func	    = ?,
+			       fmd_updt_time    = SYSDATE
+			 WHERE fmd_id = ?
+
+		</sql>
+    </item>
+    
+     <item id="delete_menu_sql" desc="这是一个SQL配置的模板文件">
+		<sql>
+			DELETE FROM 	
+				sys_func_menu_dtls 
+			WHERE 
+				fmd_id=:fmd_id 
+		</sql>
+    </item>
+    <item id="update_menu_seq" desc="这是一个SQL配置的模板文件">
+		<sql>
+			UPDATE	
+				sys_func_menu_dtls 
+			SET
+				fmd_seq=:fmd_seq
+			WHERE 
+				fmd_id=:fmd_id 
+		</sql>
+    </item>
+</sqlItem>
