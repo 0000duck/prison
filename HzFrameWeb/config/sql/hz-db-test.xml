@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 在xml配置中SQL语句里面不能用'<'，所以'<' 用 '#' 号表示，在加载时会自动转换过来 -->
+<sqlItem>
+	<!-- SELECT column_value FROM TABLE(CDS_PKG_COMMON_FUNC.CDS_F_SPLIT_DATA(?, ',')) -->
+    <item id="hdt_test_add_table" desc="这是一个SQL配置的模板文件">
+		<sql>
+			INSERT INTO hz_db_test
+			  (hdt_id, hdt_name, hdt_type, hdt_insert_time, hdt_update_time, hdt_clob)
+			VALUES
+			  (?, ?, ?, SYSDATE, SYSDATE, ?)
+		</sql>
+    </item>
+
+    <item id="hdt_test_add_table_by_paramkey" desc="测试如何使用序列号，@hdt_id必须和:hdt_id的字段名称对应, @field对于表字段名">
+    	<seq>hz_db_test@hdt_id</seq>
+		<sql>
+			INSERT INTO hz_db_test
+			  (hdt_id, hdt_name, hdt_type, hdt_insert_time, hdt_update_time)
+			VALUES
+			  (:hdt_id, :hdt_name, :hdt_type, SYSDATE, SYSDATE)
+		</sql>
+    </item>
+
+	<item id="hdt_test_update_table" desc="这是一个SQL配置的模板文件">
+		<sql>
+			UPDATE hz_db_test 
+			   SET hdt_name = ?,
+			   	   hdt_type = ?,
+			   	   hdt_update_time = SYSDATE
+		</sql>
+		<where id="0">
+			 WHERE hdt_id = ?
+		</where>
+    </item>
+
+    <item id="hdt_test_query_table" desc="测试如何使用常量转换，hdt_type是查询的字段名，hdtType是常量名">
+    	<const key="hdt_type" desc="常量转换，标识是常量KEY">hdtType</const>
+    	<const key="cus_number_cn" desc="这是机构部门转换" module="dptt"/>
+    	<const key="update_uid" desc="这是用户名转换" module="user"/>
+		<sql>
+			SELECT hdt_id,
+			       hdt_name,
+			       hdt_type,
+			       hdt_insert_time,
+			       hdt_update_uid AS update_uid,
+			       hdt_update_time,
+			       hdt_clob
+			  FROM hz_db_test
+		</sql>
+		<where id="0">
+			 WHERE hdt_id = ?
+		</where>
+		<where id="1">
+			 WHERE hdt_id = :hdt_id
+		</where>
+		<order id="0">
+			 ORDER hdt_type
+		</order>
+    </item>
+
+    <item id="hdt_test_delete_table" desc="这是一个SQL配置的模板文件">
+		<sql>
+			DELETE FROM hz_db_test
+		</sql>
+		<where id="0">
+			WHERE hdt_id = ?
+		</where>
+    </item>
+</sqlItem>
