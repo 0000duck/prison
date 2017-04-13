@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>模型组件管理</title>
+</head>
+<body>
+	<div class="vbox" style="width:400px;height:300px;padding:5px 10px;">
+			<div style="padding:0 0 5px 20px;position:absolute;top:40px;width:75%;" class="">
+				<div class="col-xs-4">
+			    	<label class="checkbox-inline">
+					  <input type="checkbox"  val='false'>犯人
+					</label>	
+		    	</div>
+		    	<div class="col-xs-4">
+					<label class="checkbox-inline">
+					  <input type="checkbox"  val='false'>民警
+					</label>	    	
+				</div>
+			</div>
+		<div class="hz-col-1" style="overflow: auto">
+			<ul class="ztree" id="mngTree"></ul>	
+		</div>
+		<div style="height:35px;border-top:1px solid #0076ad;padding-top:5px">
+			<a @click="delComponents" v-bind:class="{'btn_disabled':checked.length==0}" style="float:right" class="hbtn btn_primary btn_large"><span>删除</span></a>
+			<a @click="refresh" style="float:right" class="hbtn btn_primary btn_large"><span>刷新</span></a>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+  requirejs(['vue','frm/hz.db','frm/hz.event','hz/map/map.handle','frm/message','frm/loginUser'],function(vue,db,event,mapHandle,tip,user){
+	    //加载楼层示意图
+	    false&&db.query({
+	    	request:{
+	    		
+	    	},
+	    	success:function(){
+	    		
+	    	}
+	    });
+	    
+  });
+</script>
+</html>

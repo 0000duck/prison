@@ -1,0 +1,164 @@
+<style>
+*{
+	font-family: "微软雅黑";
+}
+html,body{
+	margin: 0px;
+	padding: 0px;
+}
+.main{
+	width: 100%;
+	height: 100%;
+  	background: url('css/image/main_bg.jpg') no-repeat; 
+	background-size:100% 100%; 
+}
+.top{
+	width: 100%;
+	height: 15%;
+	position: relative;
+}
+.top div{
+	width: 23%;
+	height: 24%;
+	color: #fff;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+.top div #back{
+	margin-left: 3.8%;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.mid{
+	width: 70%;
+	height: 65%;
+	margin: 0px auto;
+}
+.mid img{
+	cursor: pointer;
+}
+.mid .img1{
+	width: 30%; 
+	height: 18.8%;
+	position: absolute;
+	margin-top: 7.7%;
+	margin-left: 6.2%;
+}
+.mid .img2{
+	width: 30%; 
+	height: 18.8%;
+	position: absolute;
+	margin-top: 7.7%;
+	margin-left: 57.6%;
+}
+.mid .img3{
+	width: 21%; 
+	height: 18%;
+	position: absolute;
+	margin-top: 19.1%;
+	margin-left: 3%;
+}
+.mid .img4{
+	width: 21%; 
+	height: 18%;
+	position: absolute;
+	margin-top: 19.1%;
+	margin-left: 70%;
+}
+.mid .img5{
+	width: 23.8%;
+	height: 18%;
+	position: absolute;
+	margin-top: 30%;
+}
+.mid .img6{
+	width: 23.8%;
+	height: 18%;
+	position: absolute;
+	margin-top: 30%;
+	margin-left: 70.2%;
+} 
+.bottom{
+	position: relative;
+	width: 78%;
+	height: 20%;
+	margin-left: 16.5%; 
+}
+.item{
+	width:  15.5%;
+	height: 29%;
+	color:white;
+	float: left;
+	display:inline;
+	text-align: center;
+	line-height: 50px;
+	margin-left: 0.2%;
+	margin-top:4.2%;
+	cursor: pointer;
+	font-size:15px;
+}
+.item_01{
+	background: url('css/image/item_02.png') no-repeat;
+	background-size:100% 100%;
+}
+.item_02{
+	background: url('css/image/item_02.png') no-repeat;
+	background-size:100% 100%; 
+}
+.item_03{
+	background: url('css/image/item_03.png') no-repeat;
+	background-size:100% 100%; 
+}
+.item_04{
+	background: url('css/image/item_05.png') no-repeat;
+	background-size:100% 100%; 
+}
+.item_05{
+	background: url('css/image/item_05.png') no-repeat;
+	background-size:100% 100%; 
+}
+.item_06{
+	background: url('css/image/item_06.png') no-repeat;
+	background-size:100% 100%; 
+}
+/* .col-xs-12 {width: 100%;} */
+/* .col-xs-2  {width: 16.66666667%;} */
+@media only screen and (max-width: 1400px) { .top div{ font-size: 13.5px; }} 
+@media only screen and (max-width: 1400px) { .mid div{ font-size: 13px; }} 
+</style>
+<div class="main">
+	<div class="top">
+		<div>
+			<span style="font-weight: bold;">用户名：</span><span id="userName"></span>&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;">部门：</span><span id="deptName"></span> 
+			<span id="back" @click="back()">退出系统</span>
+		</div>	
+	</div>
+	<div class="mid">
+		<div style="position: relative;width: 100%;height: 100%;margin-left: 8.5%;">
+			<img class="toIndex" width="50%" height="96%" src="css/image/main_qiu.png" style="margin-top: 5.5%;margin-left: 22%;position: absolute;" @click="click_event('toIndex')">
+			<div style="position: absolute;margin-top: 12%;margin-left: 16%;color: #fff;font-weight: bold;">监所3D可视</div>
+			<div style="position: absolute;margin-top: 12%;margin-left: 71%;color: #fff;font-weight: bold;">民警执法管理</div>
+			<div style="position: absolute;margin-top: 23%;margin-left: 10.5%;color: #fff;font-weight: bold;">监室安全智能掌控</div>
+			<div style="position: absolute;margin-top: 23%;margin-left: 77%;color: #fff;font-weight: bold;">应急处置</div>
+			<div style="position: absolute;margin-top: 33.5%;margin-left: 10%;color: #fff;font-weight: bold;">就医安全管控</div>
+			<div style="position: absolute;margin-top: 33.5%;margin-left: 78.5%;color: #fff;font-weight: bold;">监所服务</div>
+			<img class="menu img1" src="css/image/main_menu_1.png" @click="switchMode(1)">
+			<img class="menu img2 toPoliceServices" src="css/image/main_menu_4.png" @click="switchMode(2)">
+			<img class="menu img3" src="css/image/main_menu_2.png" @click="switchMode(3)">
+			<img class="menu img4" src="css/image/main_menu_5.png" @click="switchMode(4)">
+			<img class="menu img5" src="css/image/main_menu_3.png" @click="switchMode(5)">
+			<img class="menu img6 toPrisonServices" src="css/image/main_menu_6.png" @click="switchMode(6)">	
+		</div>
+	</div>
+	<div class="bottom row">
+		<div v-cloak v-for="b in buttons">
+			<div class="item" v-bind:class="b.class"  v-text="b.text" @click.native="click_event(b.click)"></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/require.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script>
+requirejs(['hz/home/main']);
+</script>

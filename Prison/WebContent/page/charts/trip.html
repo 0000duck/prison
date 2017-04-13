@@ -1,0 +1,63 @@
+<head>
+  <meta charset="UTF-8">
+  <!-- <link rel="stylesheet" href="../../libs/bootstrap/css/bootstrap.min.css" > -->
+  <link rel="stylesheet" href="../../css/common.css" >
+</head>
+<style>
+</style>
+<body class="wrap">
+	<div style="width:400px;padding:25px;">
+		  <div class="input">
+		  	<input v-model="msg" placeholder="这是文本框">
+		  </div>
+		  <div class="input icon">
+		  	<input placeholder="输入关键字搜索">
+		  	<span class="search"></span>
+		  </div>	
+		  <div class="input icon"  id="mj">
+		  		<hz-select 
+		  			title="选择民警" 
+		  			search="搜索民警" 
+		  			:datas="datas"
+		  			:selected.sync="selected"
+		  		/>
+		  </div>
+		  
+		  
+		  <div id="person">
+		  		<div style="height:200px;padding:10px;background: rgba(199, 239, 252, 0.2);border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;">
+		  			<div style="float:left;width:50%">
+		  				<img src="../../css/image/person.jpg" style="height:150px;width:130px;"/>
+		  			</div>
+		  			<div style="float:left;width:50%;color:#fff;font-size:14px;">
+		  				<p><span style="text-align:right">姓名：</span><span>王建纪</span></p>
+		  				<p><span style="text-align:right">年龄：</span><span>65</span></p>
+		  				<p><span style="text-align:right">性别：</span><span>男</span></p>
+		  				<p><span style="text-align:right">级别：</span><span>警务处处长</span></p>
+		  				<p><span style="text-align:right">部门：</span><span>警务处</span></p>
+		  			</div>
+		  			<div style="clear:both"></div>
+		  		</div>
+		  </div>
+	</div>
+  <div style="padding:15px;">
+ 		<a class="hbtn btn_primary btn_mini" id="save"><i class="btn_icon icon_save"></i><span>保存</span></a>		  
+ 		<a class="hbtn btn_primary btn_mini"><i class="btn_icon icon_add"></i><span>新增</span></a>		  
+ 		<a class="hbtn btn_primary btn_mini"><i class="btn_icon icon_edit"></i><span>修改</span></a>		  
+ 		<a class="hbtn btn_primary btn_mini" id="del"><i class="btn_icon icon_del"></i><span>删除</span></a>		  
+ 		<a class="hbtn btn_primary btn_mini"><i class="btn_icon icon_search"></i><span>查询</span></a>		  
+  </div>
+  <div class="tabs" style="margin-left:-20px;">
+	  <div class="tab"><span>指挥调控</span></div>		  
+	  <div class="tab avtive"><span>视频监控</span></div>
+	  <div class="tab"><span>法治地图</span></div>
+  </div>
+  <div id="ddsda" style="display:none">
+  	<a class="hbtn btn_primary btn_mini add" ><i class="btn_icon icon_add"></i><span v-text='btnTxt'>新增</span></a>	
+  </div>
+</body>
+<script type="text/javascript" src="../../js/require.js"></script>
+<script type="text/javascript" src="../../js/config.js"></script>
+<script type="text/javascript">
+ requirejs(['hz/charts/trip']);
+</script>

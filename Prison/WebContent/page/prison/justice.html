@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../../css/prison/justice.css">
+    </head>
+    <body>
+	    <div id="justice">
+	    	<header>
+	    		<h1>武汉市司法局</h1>
+	    	</header>
+	    	<div id="justice_top">
+	    		<ul>
+	    			<li class="ul_list_1">
+	    				<i class="list_i">本日</i>
+	    				<i>本周</i>
+	    				<i>本月</i>
+	    				<i>本年</i>
+	    			</li>
+	    			<li class="ul_list"  style="margin-left:2.5vw;">
+	    				<dl>
+	    					<dt>行政审批</dt>
+	    					<dd  style="margin-left:1.4vw;">
+	    						<div></div>
+	    						<span></span>
+	    					</dd>
+	    				</dl>
+	    			</li>
+	    			<li class="ul_list"  style="margin-left:2.5vw;">
+	    				<dl>
+	    					<dt>辅助审批</dt>
+	    					<dd  style="margin-left:1.4vw;">
+	    						<div></div>
+	    						<span></span>
+	    					</dd>
+	    				</dl>
+	    			</li>
+	    			<li class="ul_list_4">
+	    				<span>
+	    					<i class="ul_list4_i1"  v-text='YTD'></i>
+	    					<i class="ul_list4_i2"  v-text='week'></i>
+	    				</span>
+	    				
+	    				<span class="ul_list4_i3"  v-text='hour'></span>
+	    			</li>
+	    			<li class="ul_list" style="margin-left:2.1vw;">
+	    				<dl>
+	    					<dt>法律援助</dt>
+	    					<dd  style="margin-left:0.9vw;">
+	    						<div></div>
+	    						<span></span>
+	    					</dd>
+	    				</dl>
+	    			</li>
+	    			<li class="ul_list"  style="margin-left:1.5vw;">
+	    				<dl>
+	    					<dt>法律咨询</dt>
+	    					<dd  style="margin-left:0.8vw;">
+	    						<div></div>
+	    						<span></span>
+	    					</dd>
+	    				</dl>
+	    			</li>
+	    			<li class="ul_list"  style="margin-left:1.5vw;">
+	    				<dl>
+	    					<dt>人民调解</dt>
+	    					<dd  style="margin-left:0.8vw;">
+	    						<div></div>
+	    						<span></span>
+	    					</dd>
+	    				</dl>
+	    			</li>
+	    		</ul>
+	    	</div>
+	    </div>
+    	<div id="map_chart">
+    		
+    	</div>
+    	<div id="pie_chart">
+    		
+    	</div>
+    	<div id="radar_chart">
+    		
+    	</div>
+    </body>
+	<script type="text/javascript" src="../../js/require.js"></script>
+	<script type="text/javascript" src="../../js/config.js"></script> 
+	<script type="text/javascript">
+	  requirejs(['hz/prison/justice','hz/prison/wuhan']);
+	</script>
+	<!-- <script src="../../js/src/prison/jquery-1.7.2-min.js"></script>
+	<script src="../../js/src/prison/echarts.min.js"></script>
+	<script src="../../js/src/prison/wuhan.js"></script> -->
+	
+</html>

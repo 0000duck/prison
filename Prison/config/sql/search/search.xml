@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqlItem>
+   <item id="select_search_by_prisoner" desc="搜索罪犯">
+   		<sql>
+   			SELECT
+   				pbd_prsnr_id id,
+   				pbd_prsnr_name name
+   			FROM
+   				psr_prisoner_base_dtls
+   			WHERE
+   				pbd_cus_number=:cus
+   		</sql>
+   </item>
+</sqlItem>

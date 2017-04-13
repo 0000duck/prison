@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <title>首页</title>
+  <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css" charset="utf-8">
+  <link rel="stylesheet" href="libs/ztree/css/zTreeStyle/zTreeStyle.css" >
+  <link rel="stylesheet" href="css/common.css" charset="utf-8">
+  <link rel="stylesheet" href="css/animate.css" charset="utf-8">
+  <link rel="stylesheet" href="css/home/index.css" charset="utf-8">
+  <link rel="stylesheet" href="css/map/mapCommon.css" charset="utf-8">
+  <link rel="stylesheet" href="css/frm/map.css" charset="utf-8">
+  <script type="text/javascript">
+  !document.cookie&&(top.location.href="login.html");
+  
+  </script>
+  <style type="text/css">
+ /* 	html * {font-family: "微软雅黑", "Courier New", Courier, monospace;} */
+	html, body {margin: 0px; padding: 0px; width: 100%; height: 100%; overflow: hidden;}
+	div.logo {position: absolute; top: 5px; left: -12px; width:610px; height:85px; background:url(css/image/logo.png) 0 center no-repeat; z-index:2;}
+
+	.menu_background{position:absolute;left:300px;bottom:0;margin-right:-300px;height:40px;min-width:500px;width:100%;background:url(css/image/nav.png) no-repeat;background-size:contain;z-index: 2;}
+	.two_menus{position:absolute;left:0;bottom:10px;width:100%;padding-left:350px; z-index: 3}
+	.two_menus img{cursor: pointer;margin:0 6px;}
+	.two_menu{font-size:14px;color:#fff;margin:0 10px;text-align:center;cursor: pointer;padding:5px 0;width:60px;}
+	.two_menus .two_menu{animation-delay: 0.1s; -moz-animation-delay:0.1s; -webkit-animation-delay:0.1s;}
+	.two_menu span{display:block;padding-top:3px;}
+	.two_menu:hover{color:#fff;}
+
+	#threeMenu {position: absolute; display: none; background:rgba(59,26,53,0.65); width:400px; border-radius:6px; min-height:90px; z-index: 4;}
+	#threeMenu .three_menu{font-size:14px;color:#fff;text-align:center;cursor: pointer;background:url(css/image/threemenu.png) no-repeat;}
+	#threeMenu .three_menu span{display:block;padding:8px 5px;}
+	#threeMenu .three_menu span:hover{font-weight:bold;}
+
+	#navs {z-index:10;cursor:pointer;position:absolute;left:15px;bottom:9px;width:70px;height:70px;line-height:70px;list-style-type:none;margin:0;padding:0;text-align:center;color:#fff;cursor:pointer;border-radius:50%;-webkit-border-radius:50%;-moz-border-radius:50%;background:url(css/image/homemenu.png);background-size:100%;background-position:center;background-repeat:no-repeat}
+	.nav {position:absolute;left:20px;bottom:10px;width:65px;height:65px;text-align:center;line-height:60px;background-size:60px;background-repeat:no-repeat;background-position:center;-webkit-font-smoothing: antialiased; visibility: hidden;}
+	.nav {transition:all .4s;-webkit-transition:all .4s;-moz-transition:.4s;cursor:pointer;z-index:4}
+
+	.config-panel {position:absolute; z-index:3;}
+	.simple-panel {background-color: rgba(10,28,38,0.75); border-radius:3px;}
+	.simple-panel .title {height:35px; line-height:35px; text-align:center; color:#fff; font-size:15px; position: relative; background:rgba(39, 119, 30, 0.71);}
+	.simple-panel .title img {position: absolute; top:5px; right:5px; width:22px; height:22px; z-index:2; cursor: pointer;}
+
+	.config-btn {position:absolute; z-index:199; top:50%; left:-35px; height:100px; margin-top:-50px; width:35px; word-wrap:break-word; letter-spacing:7px; color:#fff; text-align:right; cursor: pointer; padding-top:8px; background:url(css/image/configbtn.png);}
+	.config-btn.open {right:160px !important;}
+	.configs {position:fixed; right:-160px; top:0; width:160px; height:100%; z-index:99999; background:url(css/image/configpanel.png) center no-repeat; padding:0 10px;}
+	.configs .item-btn {padding:7px 10px; border:1px dashed #F4EA2A; margin-top:15px; background:#2f2626; border-radius:3px; cursor: move;}
+	.configs .item-btn-icon {width:26px;height:26px;vertical-align: middle;}
+
+	.pushmenu {overflow-x: hidden; position: relative; left: 0;}
+	.push {-webkit-transition: all 0.2s ease; -moz-transition: all 0.2s ease; transition: all 0.2s ease;}
+	.menu-open {right: 0px;}
+	.main {overflow-x: hidden; position: relative; left: 0;}
+
+	.view_menu_btn {position:absolute; z-index:199; top:20%; left:0; word-wrap:break-word; letter-spacing:10px; color:#fff; text-align:center; cursor: pointer; z-index:5;}
+	.view_menu_btn img {width:80px; height:26px; margin-right:1px;}
+	.view_menus {position:absolute; z-index:4; top:20%; left:0; height:300px; width:150px; background:url(css/image/vmbk.png) center center no-repeat; background-size:cover; border-radius: 3px; -webkit-transition: all 0.2s ease; -moz-transition: all 0.2s ease; transition: all 0.2s ease;}
+	.view_menu {text-align:center; background:url(css/image/vm-bk1.png) no-repeat; margin:5px 0;}
+	.view_menu span {height:35px;line-height:35px}
+	.view_menu.active {cursor: pointer; background:url(css/image/vm-bk2.png) no-repeat;}
+
+	.child_menus {position: absolute; z-index:198; top:0; width:150px; right:-150px; padding-right:10px; background:rgba(1, 26, 53, 0.7);}
+
+	#addPointPanel {display:none; position:absolute; z-index:101; background:rgba(10,28,38,0.85);}
+	#pointInfoPanel {display:none; position:absolute; background:rgba(10,28,38,0.8); z-index:99; border-radius: 4px;}
+	#pointInfoPanel .rm {padding:5px 10px; color:#E8E8E8;}
+
+	#choseBoxSelect {width:220px; position: absolute; top:80px; left:30px; color:#fff; padding:8px; background:rgba(10,28,38,0.75); z-index:2;}
+	#choseBoxSelect div {text-align:center; height:30px; line-height:30px; font-size:13px; border:1px dashed #bbb; cursor: pointer;}
+	#choseBoxSelect div.active {background:#22621E;}
+
+	#addVideoPlanPanel {display:none;width:400px; position: absolute; top:50%; left:50%; margin-left:-200px; margin-top:-105px; background: rgba(10,28,38,0.75); padding:0 0 15px 0;}
+	#addVideoPlanPanel img {width:24px;height:24px;float:right;margin-right:5px;margin-top:5px;cursor: pointer;}
+	#roomDetail {width:800px; height:650px; background:rgba(27,30,35,0.9); z-index:2; position: absolute; padding:0 0 10px 0; border-radius:6px; overflow:hidden; display:none;}
+
+	.plan_camera {position:relative; display:block; padding:0 10px; border:1px solid #bbb; color:#bbb; height:30px; line-height:30px; }
+
+	#connectionTip {position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background-color: rgba(11, 10, 49, 0.85) !important; display: none; z-index: 999999999999999;}
+	#connectionTip div.tip-tab {display: table; width: 100%; height: 100%; text-align: center;}
+	#connectionTip div.tip-tab div.tip-tab-cell {display: table-cell; vertical-align: middle;}
+	#connectionTip div.tip-tab div.tip-tab-cell span {padding: 50px 80px; color: #000; font-size: 24px; background-color: #F2F2F2; border-radius: 5px; box-shadow: 0px 0px 5px 3px rgba(57, 206, 204, 0.19);}
+  </style>
+</head>
+<body class="main push" @click="bodyClick($event)" >
+	<div id="connectionTip">
+		<div class="tip-tab">
+			<div class="tip-tab-cell"><span>系统连接已断开，正在尝试连接...</span></div>
+		</div>
+	</div>
+
+	<div id="indexDiv" style="display: block;">
+		<div class="logo"></div>
+		<div id="modelGroupEdit"></div>
+		<div id="modelGroupAdd"></div>
+		<div id="viewMenuAdd"></div>
+		<div id="viewMenuList" test></div>
+	
+		<div id="addPointPanel"></div><!-- 添加点位弹出层 -->
+		<div id="roomDetail"></div><!-- 点击房间弹出层 -->
+		<div id="pointRightMenu" oncontextmenu="return false;"></div>
+		
+		<div id="pointInfoPanel" oncontextmenu="return false;">
+			<div class="rm" id="cname"></div>
+			<div class="rm" id="ctype"></div>
+			<div class="rm" id="caddress"></div>
+			<div class="rm" id="cstatus"></div>
+		</div><!-- 右键菜单弹出层 -->
+	
+		<div id="alarmHandle"></div>
+	
+		<!-- 视角菜单 -->
+		<div class="view_menu_btn" @click="showViewMenu"><img src="css/image/vmbtn.png"/></div>
+		<div class="view_menus" v-cloak v-show="isShowViewMenu">
+			<div style="margin-top:40px;height:230px;overflow-y: auto;overflow-x:hidden ">
+				<view-menu :data="viewMenus" cm="cm"/>		
+			</div>
+		</div>
+	
+		<!-- 面板配置区 -->
+		<div class="configs push" id="configs">
+			<div class="config-btn" id="config_btn" style="left: -35px;">面板配置 </div>
+	  		<div v-for='p in panels' class="item-btn" v-bind:index="$index" draggable="true">
+	  			<img class="item-btn-icon" v-bind:index="$index" v-bind:src="p.icon"/>
+	  			<span v-text="p.name"></span>
+	  		</div>
+		</div>
+		<!-- 面板配置end -->
+		
+		<!-- 一级菜单 -->
+		<div id="navs" v-text="menuIsExpand ? '首页' : '菜单'" v-bind:class="{'active':menuIsExpand}"></div>
+		<a v-for="m in menus" class="nav" @click="showTowMenus(m)" :title="m.name">
+			<img v-bind:src="'data:image/png;base64,'+m.icon" style="width:60px;height:60px;">
+		</a>
+	 	<!-- 二级菜单 -->
+		<div class="menu_background"></div>
+		<div id="dock" class="two_menus">
+			<a class="two_menu animated bounceInUp" v-for="t in twomenus" track-by="$index" @click="open(t,$event)"  v-bind:id="'tmenu_'+t.id">
+				<img :src="'data:image/jpg;base64,'+t.icon" @click="open(t,$event)" style="width:32px;height:32px;"/>
+				<span v-text="t.name" @click="open(t,$event)"></span>
+			</a>
+		</div>
+		<!-- 二级菜单end -->
+
+		<!-- 三级菜单 -->  
+		<div id="threeMenu" class="row">
+			<div class="col-xs-4" style="margin:10px 0" v-for="t in threemenus" >
+				<div class="three_menu" @click="openModule(t)">
+					<i class="icon " style="font-size:26px"></i>
+					<span v-text="t.name"></span>
+				</div>
+			</div>
+		</div>
+
+		<div id="addVideoPlanPanel" class="vbox" >
+			<img @click="closeVideoPlanPanel" src="css/image/close.png"/>
+			<form class="form-horizontal hz-col-1" role="form" style="padding:30px 20px 0 20px">
+			  <div class="col-xs-12">
+				  <div class="form-group">
+				    <label class="col-xs-3 control-label">预案名称</label>
+				    <div class="col-xs-9">
+				       	<input class="form-control" v-model="plan.name" type="text" placeholder="预案名称">
+				    </div>
+				  </div>
+		   	  </div>
+		   	  <div class="col-xs-12">
+				  <div class="form-group">
+				    <label class="col-xs-3 control-label">预案类型</label>
+				    <div class="col-xs-9">
+				       	<hz-treeselect
+				       		tip="预案类型"
+				       		sqlid="select_device_type_drop",
+				       		:params=[plan.dgm_cus_number]
+				       		:id.sync="plan.plan_type"
+				       	/>
+				    </div>
+				  </div>
+		   	  </div>
+	   	  		<p>框选的摄像机</p>
+		   	  	<div style="height:80px;border-top:1px solid #4077ae">
+					 <div v-cloak v-if="boxSelectCameras.length>0" v-for="n in boxSelectCameras" track-by="id" class="col-xs-6" style="margin-top:10px;">
+					  		<a class="plan_camera" >
+					  			<span class="cameraName" v-text="n.name"></span>
+					  		</a>
+					  </div>
+				</div>
+		  	</form>
+		  	<div class="bottom" style="border:none">
+		  		<div class="buttons" style="margin-top:15px;">
+					 <a @click="saveVideoPlan(1)" class="hbtn btn_primary btn_large"><i class="btn_icon icon_save"></i><span>保存个人预案</span></a>
+					 <a @click="saveVideoPlan(0)" v-if="dataAuth != 2" class="hbtn btn_primary btn_large"><i class="btn_icon icon_save"></i><span>保存公共预案</span></a>
+		  		</div>
+		  	</div>
+		</div>
+
+	  	<div class="hz-3dmap-test" style="display: none;">
+		<!--   	
+	  		<input type="button" value="绘画路径" onclick="rp_openEdit()">
+	  		<input type="button" value="关闭绘画" onclick="rp_closeEdit()">
+	  		<input type="button" value="清除路径" onclick="rp_clearEdit()">
+	  		<input type="button" value="获取路径" onclick="rp_getRoutePath()">
+	  		<input type="button" value="播放路径" onclick="rp_playPath()">
+	  		<input type="button" value="暂停路径" onclick="rp_pausePath()">
+	  		<input type="button" value="停止路径" onclick="rp_stopPath()">
+
+	  		<span>------------------</span>
+	  		<input type="button" value="绘画路径" onclick="pg_openEdit()">
+	  		<input type="button" value="关闭绘画" onclick="pg_closeEdit()">
+	  		<input type="button" value="获取路径" onclick="pg_getRoute()">
+	  		<input type="button" value="显示电网" onclick="pg_showPowerGrid()">
+	  		<input type="button" value="删除电网" onclick="pg_removePowerGrid()">
+
+	  		<span>------------------</span>
+	  		<input type="button" value="绘制轨迹" onclick="t_openEdit()">
+	  		<input type="button" value="关闭绘制" onclick="t_closeEdit()">
+	  		<input type="button" value="获取路径" onclick="t_getRoute()">
+	  		<input type="button" value="轨迹移动" onclick="t_setTrackPath()">
+	  		<input type="button" value="暂停移动" onclick="t_trackToggle()">
+	  		<input type="button" value="结束移动" onclick="t_stopTrack()">
+	  		<input type="button" value="测试移动" onclick="t_trackMove()">
+	  		<input type="button" value="测试移动1" onclick="t_trackMove1()">
+
+			<span>-------面板------</span>
+			<input type="button" value="开启拾取" onclick="ipt_enabled()">
+			<input type="button" value="关闭拾取" onclick="ipt_disabled()">
+	  		<input type="button" value="添加面板" onclick="ipt_add()">
+	  		<input type="button" value="删除面板" onclick="ipt_del()">
+	  		<input type="button" value="打印坐标" onclick="ipt_print()">
+
+	  		<span>--------床--------</span>
+			<input type="button" value="启动编辑" onclick="bt_enabledAddBed()">
+			<input type="button" value="关闭编辑" onclick="bt_disabledAddBed()">
+	  		<input type="button" value="加载模型" onclick="bt_updateBed()">
+	  		<input type="button" value="删除模型" onclick="bt_removeBed()">
+	  		<input type="button" value="打印坐标" onclick="bt_printBed()">
+
+			<span>-------组件------</span>
+			<input type="button" value="启动编辑" onclick="mc_enabled()">
+			<input type="button" value="关闭编辑" onclick="mc_disabled()">
+	  		<input type="button" value="添加组件" onclick="mc_add()">
+	  		<input type="button" value="删除组件" onclick="mc_remove()">
+
+			<span>-------标注------</span>
+			<input type="button" value="启动编辑" onclick="lt_enabled()">
+			<input type="button" value="关闭编辑" onclick="lt_disabled()">
+	  		<input type="button" value="添加标注" onclick="lt_addLabel()">
+	  		<input type="button" value="删除标注" onclick="lt_removeLabel()">
+	  		<input type="button" value="显示标注" onclick="lt_showLabel()">
+	  		<input type="button" value="隐藏标注" onclick="lt_hideLabel()">
+		  	 -->
+	  	</div>
+
+		<!-- 刷卡提示  ck -->
+		<section id="doorRecord" class="doorRecord" v-cloak>
+			<p></p>
+			<ul id="doorlist"><!-- 提示列表 -->
+				<li v-for="c in doorList" data-doorid='{{c.doorId}}' data-plc='{{c.cardId}}'>
+					<div style="padding-top: 5px;">
+						<p><label>门禁编号:</label>{{c.doorId}}</p>
+						<p><label>刷卡卡号:</label>{{c.cardId}}</p>
+						<p><label>刷卡时间:</label>{{c.brushCardTime}}</p>
+						<p><label>人员类型:</label>{{c.peopleType==1&&'民警'||c.peopleType==2&&'病员'||c.peopleType==3&&'外来人员'}}</p>
+						<p><label>进出标示:</label>{{c.inOutFlag==1?'进':'出'}}</p>
+						<p><label>状态:</label>{{c.status==1?'异常刷卡':'正常刷卡'}}</p>
+					</div>
+					<a v-bind:class="{'active':c.inOutFlag==1}">开门</a>
+					<a v-bind:class="{'active':c.inOutFlag==0}">关门</a>
+					<a >定位</a>
+				</li>
+			</ul>
+			<a></a>
+				<!-- 密码弹窗 -->
+			<form id="passwordd" class="passwordd" autocomplete="false" >
+	            <input  type="password" >
+	           	<input  type="password" >
+	           	<input  type="password" >
+	           	<input  type="password" >
+	           	<input  type="password" >
+	           	<input  type="password" >
+			</form>           	
+		</section>
+
+		<!-- 楼层示意图 ck-->
+		<section id="diagramck" class="diagramck" @click.self="show($event)">
+			<ul >
+				<li v-for="level in levels" style="top:{{25 * $index}}px; z-index:{{levels.length - $index}};" id="gram{{level.area}}" data-area="{{level.area}}" title="当前人数：{{level.tl}}人 &#10;总人数：{{level.prisoners}}人">
+					<p @click.self="showLevel($event);">
+						<span style="padding-top: 2px;">{{levels.length-$index}}F</span>
+						<span style="text-align: center;">{{level.tl}} / {{level.prisoners}} 人</span>
+					</p>
+				</li>
+			</ul>
+		</section>
+	
+		<!-- 全局搜索框 ck -->
+		<section class='searchAll' id="searchAll">
+			<input placehold="搜索关键字" v-model="key"/>
+			<div>
+				<ul>
+					<li v-for="key in searchs" @click.self="find(key);">搜索"{{key.name}}"相关的{{key.tip}}</li>
+				</ul>
+			</div>
+		</section>
+		<!-- 三级菜单end -->
+	  	<hz-panels v-if="selectPanels.length>0" :data="selectPanels" />  
+	</div>
+
+</body>
+
+<script type="text/javascript" src="js/require.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript">
+	requirejs(['frm/dataPermission','hz/home/index','hz/home/map.load', 'hz/test/mapTest']);
+</script>
+<script>
+function outSystem(){
+	window.location.href="login.html";
+}
+</script>
+</html>

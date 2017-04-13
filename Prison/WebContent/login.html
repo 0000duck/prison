@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>首页</title>
+  <style>
+  	html,body{
+  		height:100%;
+  		margin:0;
+  		padding:0;
+  		color:white !important;
+  	}
+  	body{
+  		background:url('css/image/login.png');
+  		background-size: 100% 100%;
+	    background-position: center;
+	    background-repeat: no-repeat;
+  	}
+  	.frame{
+  		    position: absolute;
+		    top: 30%;
+		    left: 32%;
+		    height: 30%;
+		    width: 30%;
+		    background: url(css/image/loginframe.png);
+		    background-size: 100%,100%;
+		    background-repeat: no-repeat;
+		    background-position: center;
+  	}
+  	.input{
+        min-height: 30px;
+        border-radius: 3px;
+   		border-style: none;
+   		width:85%;
+   		float:right;
+  	}
+  	
+  	.frame>div{
+ 		position: absolute;
+        width: 50%;
+    	left: 45%;
+    	height:80%;
+    	top: 20%;
+  	}
+  	.frame input:last-child{
+  			top:50%;
+  	}
+  	button{
+		    background: url(css/image/loginb.png);
+		    background-size: cover;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    min-height: 30px;
+		   
+    		border-style: none;
+    		width:90%;
+  	}
+  	:-webkit-autofill {
+	  -webkit-text-fill-color: #333 !important;
+	  transition: background-color 5000s ease-in-out 0s;
+	}
+	.user::before,.pwd::before{
+		        content: '';
+			    background: url(css/image/user.png);
+			    width: 10%;
+			    height: 30px;
+			    display: inline-block;
+			    background-repeat: no-repeat;
+			    background-position: center;
+			    
+	}
+	.pwd::before{
+				 background-image: url(css/image/pwd.png);
+	}
+	p{
+	    width: 90%;
+	    background-color: rgb(255, 255, 255);
+	    border-radius: 3px;
+	  }
+	  input:focus{
+	  	outline:none;
+	  }
+  </style>
+</head>
+
+<body>
+	<div class="frame">
+	
+		<div>
+			<p class="user">
+				<input class="input" type="text" name="username"/>
+			</p>
+			<p  class="pwd">
+				<input type="password" name="password" style="top:50%;" class="input"/>
+			</p>
+			<button id="login" ></button>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/require.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript">
+  requirejs(['hz/login/login']);
+</script>
+</html>
