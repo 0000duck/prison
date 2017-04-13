@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/Hz3dMap" />
+    <file type="web" url="file://$PROJECT_DIR$/HzAlarm" />
+    <file type="web" url="file://$PROJECT_DIR$/HzBaseData" />
+    <file type="web" url="file://$PROJECT_DIR$/HzBroadcast" />
+    <file type="web" url="file://$PROJECT_DIR$/HzCallRoll" />
+    <file type="web" url="file://$PROJECT_DIR$/HzDaily" />
+    <file type="web" url="file://$PROJECT_DIR$/HzDoor" />
+    <file type="web" url="file://$PROJECT_DIR$/HzDuty" />
+    <file type="web" url="file://$PROJECT_DIR$/HzForeign" />
+    <file type="web" url="file://$PROJECT_DIR$/HzFrameWeb" />
+    <file type="web" url="file://$PROJECT_DIR$/HzInfopublish" />
+    <file type="web" url="file://$PROJECT_DIR$/HzLED" />
+    <file type="web" url="file://$PROJECT_DIR$/HzPolice" />
+    <file type="web" url="file://$PROJECT_DIR$/HzPowerNetwork" />
+    <file type="web" url="file://$PROJECT_DIR$/HzPrisoner" />
+    <file type="web" url="file://$PROJECT_DIR$/HzRFID" />
+    <file type="web" url="file://$PROJECT_DIR$/HzScheduling" />
+    <file type="web" url="file://$PROJECT_DIR$/HzScreen" />
+    <file type="web" url="file://$PROJECT_DIR$/HzSystemManager" />
+    <file type="web" url="file://$PROJECT_DIR$/HzTalkback" />
+    <file type="web" url="file://$PROJECT_DIR$/HzVideo" />
+    <file type="web" url="file://$PROJECT_DIR$/HzWirelessAlarm" />
+    <file type="web" url="file://$PROJECT_DIR$/Prison" />
+  </component>
+  <component name="IdProvider" IDEtalkID="07B42DE9F202EEF3E2C7AEA3935AA519" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HzScreen:war">
+    <output-path>$PROJECT_DIR$/HzScreen/target</output-path>
+    <root id="archive" name="HzScreen.war">
+      <element id="artifact" artifact-name="HzScreen:war exploded" />
+    </root>
+  </artifact>
+</component>

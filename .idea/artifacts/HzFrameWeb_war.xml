@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HzFrameWeb:war">
+    <output-path>$PROJECT_DIR$/HzFrameWeb/target</output-path>
+    <root id="archive" name="HzFrameWeb.war">
+      <element id="artifact" artifact-name="HzFrameWeb:war exploded" />
+    </root>
+  </artifact>
+</component>

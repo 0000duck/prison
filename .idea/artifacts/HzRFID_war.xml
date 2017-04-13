@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HzRFID:war">
+    <output-path>$PROJECT_DIR$/HzRFID/target</output-path>
+    <root id="archive" name="HzRFID.war">
+      <element id="artifact" artifact-name="HzRFID:war exploded" />
+    </root>
+  </artifact>
+</component>

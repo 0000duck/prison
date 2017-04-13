@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HzCallRoll:war">
+    <output-path>$PROJECT_DIR$/HzCallRoll/target</output-path>
+    <root id="archive" name="HzCallRoll.war">
+      <element id="artifact" artifact-name="HzCallRoll:war exploded" />
+    </root>
+  </artifact>
+</component>

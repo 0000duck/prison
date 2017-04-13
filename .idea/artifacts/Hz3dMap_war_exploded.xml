@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Hz3dMap:war exploded">
+    <output-path>$PROJECT_DIR$/Hz3dMap/target/HzVideo</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Hz3dMap" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="D:\workspaceidea\prison\Hz3dMap\target/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="Hz3dMap/web/Web" />
+    </root>
+  </artifact>
+</component>

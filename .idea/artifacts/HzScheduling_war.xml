@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HzScheduling:war">
+    <output-path>$PROJECT_DIR$/HzScheduling/target</output-path>
+    <root id="archive" name="HzScheduling.war">
+      <element id="artifact" artifact-name="HzScheduling:war exploded" />
+    </root>
+  </artifact>
+</component>

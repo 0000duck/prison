@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Hz3dMap:war">
+    <output-path>$PROJECT_DIR$/Hz3dMap/target</output-path>
+    <root id="archive" name="HzVideo.war">
+      <element id="artifact" artifact-name="Hz3dMap:war exploded" />
+    </root>
+  </artifact>
+</component>

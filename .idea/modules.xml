@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Hz3dMap/Hz3dMap.iml" filepath="$PROJECT_DIR$/Hz3dMap/Hz3dMap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzAlarm/HzAlarm.iml" filepath="$PROJECT_DIR$/HzAlarm/HzAlarm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzAlarmExtend/HzAlarmExtend.iml" filepath="$PROJECT_DIR$/HzAlarmExtend/HzAlarmExtend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzBaseData/HzBaseData.iml" filepath="$PROJECT_DIR$/HzBaseData/HzBaseData.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzBroadcast/HzBroadcast.iml" filepath="$PROJECT_DIR$/HzBroadcast/HzBroadcast.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzCallRoll/HzCallRoll.iml" filepath="$PROJECT_DIR$/HzCallRoll/HzCallRoll.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzCommon/HzCommon.iml" filepath="$PROJECT_DIR$/HzCommon/HzCommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzDaily/HzDaily.iml" filepath="$PROJECT_DIR$/HzDaily/HzDaily.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzDb/HzDb.iml" filepath="$PROJECT_DIR$/HzDb/HzDb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzDoor/HzDoor.iml" filepath="$PROJECT_DIR$/HzDoor/HzDoor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzDuty/HzDuty.iml" filepath="$PROJECT_DIR$/HzDuty/HzDuty.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzForeign/HzForeign.iml" filepath="$PROJECT_DIR$/HzForeign/HzForeign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzFrameService/HzFrameService.iml" filepath="$PROJECT_DIR$/HzFrameService/HzFrameService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzFrameWeb/HzFrameWeb.iml" filepath="$PROJECT_DIR$/HzFrameWeb/HzFrameWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzInfopublish/HzInfopublish.iml" filepath="$PROJECT_DIR$/HzInfopublish/HzInfopublish.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzLED/HzLED.iml" filepath="$PROJECT_DIR$/HzLED/HzLED.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzLog/HzLog.iml" filepath="$PROJECT_DIR$/HzLog/HzLog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzMq/HzMq.iml" filepath="$PROJECT_DIR$/HzMq/HzMq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzPolice/HzPolice.iml" filepath="$PROJECT_DIR$/HzPolice/HzPolice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzPowerNetwork/HzPowerNetwork.iml" filepath="$PROJECT_DIR$/HzPowerNetwork/HzPowerNetwork.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzPrisoner/HzPrisoner.iml" filepath="$PROJECT_DIR$/HzPrisoner/HzPrisoner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzRFID/HzRFID.iml" filepath="$PROJECT_DIR$/HzRFID/HzRFID.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzScheduling/HzScheduling.iml" filepath="$PROJECT_DIR$/HzScheduling/HzScheduling.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzScreen/HzScreen.iml" filepath="$PROJECT_DIR$/HzScreen/HzScreen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzSocket/HzSocket.iml" filepath="$PROJECT_DIR$/HzSocket/HzSocket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzSystemManager/HzSystemManager.iml" filepath="$PROJECT_DIR$/HzSystemManager/HzSystemManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzTalkback/HzTalkback.iml" filepath="$PROJECT_DIR$/HzTalkback/HzTalkback.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzVideo/HzVideo.iml" filepath="$PROJECT_DIR$/HzVideo/HzVideo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HzWirelessAlarm/HzWirelessAlarm.iml" filepath="$PROJECT_DIR$/HzWirelessAlarm/HzWirelessAlarm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Prison/Prison.iml" filepath="$PROJECT_DIR$/Prison/Prison.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prison.iml" filepath="$PROJECT_DIR$/prison.iml" />
+    </modules>
+  </component>
+</project>

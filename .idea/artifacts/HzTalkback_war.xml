@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HzTalkback:war">
+    <output-path>$PROJECT_DIR$/HzTalkback/target</output-path>
+    <root id="archive" name="HzTalkback.war">
+      <element id="artifact" artifact-name="HzTalkback:war exploded" />
+    </root>
+  </artifact>
+</component>

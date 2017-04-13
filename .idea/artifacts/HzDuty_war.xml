@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HzDuty:war">
+    <output-path>$PROJECT_DIR$/HzDuty/target</output-path>
+    <root id="archive" name="HzDuty.war">
+      <element id="artifact" artifact-name="HzDuty:war exploded" />
+    </root>
+  </artifact>
+</component>

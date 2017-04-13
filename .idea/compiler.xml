@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="DEFAULT_COMPILER" value="Javac" />
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="Hz3dMap" />
+        <module name="HzAlarm" />
+        <module name="HzAlarmExtend" />
+        <module name="HzBaseData" />
+        <module name="HzBroadcast" />
+        <module name="HzCallRoll" />
+        <module name="HzCommon" />
+        <module name="HzDaily" />
+        <module name="HzDb" />
+        <module name="HzDoor" />
+        <module name="HzDuty" />
+        <module name="HzForeign" />
+        <module name="HzFrameService" />
+        <module name="HzFrameWeb" />
+        <module name="HzInfopublish" />
+        <module name="HzLED" />
+        <module name="HzLog" />
+        <module name="HzMq" />
+        <module name="HzPolice" />
+        <module name="HzPowerNetwork" />
+        <module name="HzPrisoner" />
+        <module name="HzRFID" />
+        <module name="HzScheduling" />
+        <module name="HzScreen" />
+        <module name="HzSocket" />
+        <module name="HzSystemManager" />
+        <module name="HzTalkback" />
+        <module name="HzVideo" />
+        <module name="HzWirelessAlarm" />
+        <module name="Prison" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Hz3dMap" target="1.8" />
+      <module name="HzAlarm" target="1.8" />
+      <module name="HzBaseData" target="1.8" />
+      <module name="HzBroadcast" target="1.8" />
+      <module name="HzCallRoll" target="1.8" />
+      <module name="HzCommon" target="1.8" />
+      <module name="HzDaily" target="1.8" />
+      <module name="HzDb" target="1.8" />
+      <module name="HzDoor" target="1.8" />
+      <module name="HzDuty" target="1.8" />
+      <module name="HzForeign" target="1.8" />
+      <module name="HzFrameWeb" target="1.8" />
+      <module name="HzInfopublish" target="1.8" />
+      <module name="HzLED" target="1.8" />
+      <module name="HzLog" target="1.8" />
+      <module name="HzPolice" target="1.8" />
+      <module name="HzPowerNetwork" target="1.8" />
+      <module name="HzPrisoner" target="1.8" />
+      <module name="HzRFID" target="1.8" />
+      <module name="HzScheduling" target="1.8" />
+      <module name="HzScreen" target="1.8" />
+      <module name="HzSocket" target="1.8" />
+      <module name="HzSystemManager" target="1.8" />
+      <module name="HzTalkback" target="1.8" />
+      <module name="HzVideo" target="1.8" />
+      <module name="HzWirelessAlarm" target="1.8" />
+      <module name="Prison" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

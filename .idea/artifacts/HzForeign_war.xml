@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HzForeign:war">
+    <output-path>$PROJECT_DIR$/HzForeign/target</output-path>
+    <root id="archive" name="HzForeign.war">
+      <element id="artifact" artifact-name="HzForeign:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HzDaily:war">
+    <output-path>$PROJECT_DIR$/HzDaily/target</output-path>
+    <root id="archive" name="HzDaily.war">
+      <element id="artifact" artifact-name="HzDaily:war exploded" />
+    </root>
+  </artifact>
+</component>

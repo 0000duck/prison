@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HzSystemManager:war">
+    <output-path>$PROJECT_DIR$/HzSystemManager/target</output-path>
+    <root id="archive" name="HzSystemManager.war">
+      <element id="artifact" artifact-name="HzSystemManager:war exploded" />
+    </root>
+  </artifact>
+</component>

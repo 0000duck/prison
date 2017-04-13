@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HzVideo:war">
+    <output-path>$PROJECT_DIR$/HzVideo/target</output-path>
+    <root id="archive" name="HzVideo.war">
+      <element id="artifact" artifact-name="HzVideo:war exploded" />
+    </root>
+  </artifact>
+</component>

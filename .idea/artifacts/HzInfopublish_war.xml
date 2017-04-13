@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HzInfopublish:war">
+    <output-path>$PROJECT_DIR$/HzInfopublish/target</output-path>
+    <root id="archive" name="HzInfopublish.war">
+      <element id="artifact" artifact-name="HzInfopublish:war exploded" />
+    </root>
+  </artifact>
+</component>
